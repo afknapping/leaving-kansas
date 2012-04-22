@@ -181,21 +181,22 @@ Also thanks to the [*Hamburg Ruby Community*](http://hamburg.onruby.de/), especi
 ---
 ### Further reading
 
-- [Git](http://rogerdudler.github.com/git-guide/), [Git](http://nfarina.com/post/9868516270/git-is-simpler) and git. really, you can never read enough about git.
+- [Git](http://rogerdudler.github.com/git-guide/), [Git](http://nfarina.com/post/9868516270/git-is-simpler) and Git. Really, you can never read enough about git.
 - [Hacker News](http://news.ycombinator.com/)
 - [Getting Real](http://gettingreal.37signals.com/toc.php)
 
 
-(coming soon)
+(more coming soon)
 
 ### Further doing
 
 - [Rubymonk](http://rubymonk.com/)
 - [Codecademy](http://www.codecademy.com/)
+- [HAML](http://haml-lang.com/) and [SASS](sass-lang.com)
 
 ### Further meeting people
 
-
+- [ruby usergroups](http://www.rubyusergroups.org/)
 - [railsgirls](http://railsgirls.com/)
 
 
