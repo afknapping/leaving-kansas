@@ -1,6 +1,6 @@
 # Leaving Kansas
 
-A tutorial on how to set up *The Wonderful World of Ruby and Rails*™ on OS X.
+This is the tl;dr-version (or merely a checklist) of a tutorial on how to set up *The Wonderful World of Ruby and Rails*™ on OS X.
 
 ##### What's inside?
 
@@ -12,22 +12,14 @@ All the steps, links and commands needed to start forking, modding and (prototyp
 
 Just follow the steps, in the order they are written. Skip steps at your own peril. 
 
-Get it all to work and enjoy the adrenaline while it lasts. Once everything is up and running, you can then mod, destroy and make your own mistakes ("learning").
-
-If you are not looking forward to do some *hardcore learning* after this quick setup, [exit now!!11!](http://www.digital-web.com/articles/easypeasy_php) and save yourself lots of time and frustration.
-
-Let's go!
-
 
 
 ### 0. Prerequisites
 
-Just in case you forgot: skip steps at your own peril!
-
 - [Try Ruby](http://tryruby.org/)
 - Update OS X to 10.6 Snow Leopard or 10.7 Lion. Sorry, no 10.5 Leopard.
 - Get your mess of passwords organized with [KeePassX](http://www.keepassx.org/).
-- Set up a backup with Time Machine. Yes, that might include going to the store and buying a harddrive. Really, if you are not doing regular backups yet, shut up and don't get me started. Do not continue here without having a backup!
+- Set up a backup with Time Machine. Yes, that might include going to the store and buying a harddrive. Do not continue without having a backup!
 - Tattoo "search the interwebs!!11!" on the back of your hands. Whenever you read a word you do not understand, *look on the back of your hands!* [Stack Overflow](http://stackoverflow.com/) is the better Google for coding matters while [DuckDuckGo](http://duckduckgo.com) doesn't track you, has the better UI and some [nifty goodies](http://duckduckgo.com/tech.html).
 - Find out how to write a tilde: `~`
 - Do [5 minutes of shell basics](http://community.linuxmint.com/tutorial/view/100). Conviniently, the program to do so on OS X is already installed and called "Terminal".
