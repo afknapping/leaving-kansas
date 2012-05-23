@@ -271,9 +271,4 @@ Also thanks to the [*Hamburg Ruby Community*](http://hamburg.onruby.de/), especi
 
 (more coming. maybe.)
 
----
-
-### dd
-
-you can find me via 
 
