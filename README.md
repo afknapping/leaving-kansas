@@ -2,6 +2,8 @@
 
 This is the tl;dr-version (or merely a checklist) of a tutorial on how to set up *The Wonderful World of Ruby and Rails*™ on OS X.
 
+Update: I've decided that things like this should *only* have a tl;dr-version. So there will be no longer tutorial…
+
 ##### What's inside?
 
 All the steps, links and commands needed to start forking, modding and (prototypically) deploying Ruby applications.
@@ -18,11 +20,11 @@ Just follow the steps, in the order they are written. Skip steps at your own per
 
 - [Try Ruby](http://tryruby.org/)
 - Update OS X to 10.6 Snow Leopard or 10.7 Lion. Sorry, no 10.5 Leopard.
-- Get your mess of passwords organized with [KeePassX](http://www.keepassx.org/).
+- Get your passwords organized with [KeePassX](http://www.keepassx.org/).
 - Set up a backup with Time Machine. Yes, that might include going to the store and buying a harddrive. Do not continue without having a backup!
-- Tattoo "search the interwebs!!11!" on the back of your hands. Whenever you read a word you do not understand, *look on the back of your hands!* [Stack Overflow](http://stackoverflow.com/) is the better Google for coding matters while [DuckDuckGo](http://duckduckgo.com) doesn't track you, has the better UI and some [nifty goodies](http://duckduckgo.com/tech.html).
+- Tattoo "search the interwebs!!11!" on the back of your hands. Whenever you read a word you do not understand, *look on the back of your hands!* [Stack Overflow](http://stackoverflow.com/) is the better Google for coding matters while [DuckDuckGo](http://duckduckgo.com) doesn't track you, has the nicer UI and some [nifty goodies](http://duckduckgo.com/tech.html).
 - Find out how to write a tilde: `~`
-- Do [5 minutes of shell basics](http://community.linuxmint.com/tutorial/view/100). Conviniently, the program to do so on OS X is already installed and called "Terminal".
+- Do [5 minutes of shell basics](http://community.linuxmint.com/tutorial/view/100). Conveniently, the program to do so on OS X is already installed and called "Terminal".
 - Install [iTerm2](http://iterm2.com/) for added shell convinience.
 - Create a folder called `projects` in your home directory.
 - Sign up for accounts on [Twitter](http://twitter.com), [Github](http://github.com) and [Heroku](http://heroku.com).
@@ -30,35 +32,49 @@ Just follow the steps, in the order they are written. Skip steps at your own per
 - Install [Sublime Text](http://www.sublimetext.com/2) or [Textmate](http://macromates.com/).
 
 
+
 ### 1. Install all the stuff
 
-- [OS X GCC](https://github.com/kennethreitz/osx-gcc-installer/)
+- ## [OS X GCC](https://github.com/kennethreitz/osx-gcc-installer/)
 
-- [RVM (Ruby Version Manager)](https://rvm.io/)...
-
-        $ curl -L get.rvm.io | bash -s stable
-
-- …a newer ruby (this will take a while, go get some coffee)…
-
-        $ rvm install 1.9.3
-        $ rvm use 1.9.3
-        
-- …and let's set that to default while we're at it:
-
-        $ rvm --default use 1.9.3
-
-- The [Heroku Toolbelt](https://toolbelt.heroku.com/) (which conviniently includes [git](http://git-scm.com/)). Make sure to follow the "Getting started" part on that page too, including the ssh-key part. Your Github-Account also has a place for that ssh-key.
+- ## [Homebrew](https://github.com/mxcl/homebrew/wiki/installation)
 
 
-- [Rubygems](http://rubygems.org/pages/download). Instructions on how to install are in the included Readme within the .zip.
 
-- [Bundler](http://gembundler.com/) is the first gem we need, it will install other packs of gems later:
+
+- ## [git](http://git-vcs.com)
+
+         $ brew update
+         $ brew install git
+         
+
+- ## [rbenv](http://github.com/rbenv) + [rubybuild](http://github.com/heroku/ruby-build)
+
+    …and a newer ruby (this will take a while, go get some coffee)…
+
+        $ git clone ...
+        $ brew install rbenv
+        $ brew install ruby-build
+        $ ruby-build 1.9.3
+        $ rbenv 1.9.3
+
+- ## [Rubygems](http://rubygems.org/pages/download).
+
+        $ brew install rubygems
+
+- ## [Bundler](http://gembundler.com/)
 
         $ gem install bundler
         
     You just installed your first gem. Well done!
 
-- [Homebrew](https://github.com/mxcl/homebrew/wiki/installation)
+- ## [the heroku cli](http://github.com/heroku/gem)
+
+        $ gem install heroku
+
+
+
+
 
 
 ### 2. Fork and deploy a test app
@@ -124,11 +140,11 @@ Have a look at the terminal window where you started thin. You can see the reque
 
 Do you see your changes on your deployed version of the blog and on your github repo? Congratulations #4!
 
-### You did it! Now take a break…
+### You did it! Now take a break,…
 
-…and pat yourself on the back for next couple hours. Bold move, bro!
+…get a beer and pat yourself on the back for next couple hours. Bold move, bro!
 
-That also means that this tutorial worked out. Tell your friends about it.
+That also means that this tutorial worked out. [Tell your friends about it](the long tweet thing...).
 
 
 
@@ -145,35 +161,33 @@ For example:
 - Drink more water
 - Make a branch of your blog, change the design, later merge it to your master branch
 - Learn [HAML](http://haml-lang.com/) and [SASS](sass-lang.com)
-- try to [get a rails app running](http://railsapps.github.com/rails-heroku-tutorial.html)
+- Try to [get a rails app running](http://railsapps.github.com/rails-heroku-tutorial.html)
 - Try [Pow](http://pow.cx/)
 - [Learn more shell](http://cli.learncodethehardway.org/book/)
 - [Learn more Ruby](http://rubymonk.com/)
-- [Learn some JavaScript](http://www.codecademy.com/)
-- Don't mention the war!
-
-### …get [more good advice](http://goodfuckingdesignadvice.com/)…
-
-### …and [give feedback](http://twitter.com/filtercake).
+- [Learn some JavaScript](http://www.codecademy.com/) –– or if you know JavaScript, check out [CoffeeScript](http://coffeescript.org)
+- get [more good advice](http://goodfuckingdesignadvice.com/)…
+- …and [give feedback](http://twitter.com/filtercake).
 
 ---
 
-###### Credits
+### Credits
 
-A very special thanks to [5v3n](https://github.com/5v3n).
+A very special thanks to [5v3n](https://github.com/5v3n). This doc originated as part of documentation for [The Ratpack Workshop](link).
 
 Also thanks to the [*Hamburg Ruby Community*](http://hamburg.onruby.de/), especially [blindgaenger](https://github.com/blindgaenger) and [the mindmatters crew](https://github.com/mindmatters).
 
 ---
 ### Further reading
 
-- [Git](http://rogerdudler.github.com/git-guide/), [Git](http://nfarina.com/post/9868516270/git-is-simpler) and Git. Really, you can never read enough about git.
-- [Hacker News](http://news.ycombinator.com/)
-- [Getting Real](http://gettingreal.37signals.com/toc.php)
+- [Git](http://rogerdudler.github.com/git-guide/), [Git](http://nfarina.com/post/9868516270/git-is-simpler) and [Git](http://git-scm.com/video/what-is-version-control). Really, you can never know enough about git.
 
 
-(more coming soon.)
+(more coming. maybe.)
 
+---
 
+### dd
 
+you can find me via 
 
