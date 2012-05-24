@@ -1,22 +1,10 @@
 # Leaving Kansas
 
-This is the tl;dr-version (or merely a checklist) of a tutorial on how to set up *The Wonderful World of Ruby and Rails*™ on OS X.
-
-Update: I've decided that things like this should *only* have a tl;dr-version. So there will be no longer tutorial…
-
-##### What's inside?
-
-All the steps, links and commands needed to start forking, modding and (prototypically) deploying Ruby applications.
-
-(If you are looking for "a Rails tutorial" and think you are wrong: Rails is an application framework based on the programming language "Ruby". So: *every* Rails application is a Ruby application.)
-
-##### How?
-
-Just follow the steps, in the order they are written. Skip steps at your own peril. 
+How to set up *The Wonderful World of Ruby and Rails*™ on OS X. 
 
 
 
-### 0. Prerequisites
+## 0. Preface
 
 - [Try Ruby](http://tryruby.org/)
 - Update OS X to 10.6 Snow Leopard or 10.7 Lion. Sorry, no 10.5 Leopard.
@@ -31,11 +19,10 @@ Just follow the steps, in the order they are written. Skip steps at your own per
 - Check out [Markdown](http://daringfireball.net/projects/markdown/) and install [Mou](http://mouapp.com/).
 - Install [Sublime Text](http://www.sublimetext.com/2) or [Textmate](http://macromates.com/).
 
----
 
-### 1. Install all the stuff
+## 1. Install all the stuff
 
-- ## [XCode](https://developer.apple.com/xcode/) >= 4.3
+- ### [XCode](https://developer.apple.com/xcode/) >= 4.3
 
   It's huge. This will take some time to download. 
 
@@ -44,13 +31,15 @@ Just follow the steps, in the order they are written. Skip steps at your own per
   ![](http://dl.dropbox.com/u/2146484/xcode-cli-install.png)
 
 
-   *Note:* It would be **much** lighter to use [OS X GCC](https://github.com/kennethreitz/osx-gcc-installer/), but [that is missing `xcodebuild`](https://github.com/mxcl/homebrew/issues/10960), so we need the 5 gig Download of XCode through the Mac App Store to install Homebrew without errors :(
+   *Note:* It would be **much** lighter to use [OS X GCC](https://github.com/kennethreitz/osx-gcc-installer/), but [that is missing `xcodebuild`](https://github.com/mxcl/homebrew/issues/10960), so we need the 5 gig download of XCode through the Mac App Store to install Homebrew without errors :(
 
-- ## [Homebrew](https://github.com/mxcl/homebrew/wiki/installation)
+- ### [Homebrew](https://github.com/mxcl/homebrew/wiki/installation)
+
+  is currently installed by doing:
 
         $ /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 
-  then do
+  Then do
   
         $ brew doctor
       
@@ -62,17 +51,17 @@ Just follow the steps, in the order they are written. Skip steps at your own per
   
         $ brew doctor
       
-  should happily announce that
+  should happily announce that:
   
         Your system is raring to brew.    
 
-- ## [git](http://git-scm.com/)
+- ### [git](http://git-scm.com/)
 
-	we want to uninstall the git version that came with OS X and install an up-to-do version with homebrew:
+  We want to uninstall the git version that came with OS X and install an up-to-do version with homebrew:
 	
         $ which git
 	    
-  will give you (on Lion at least)
+  will output (on Lion at least)
   
         /usr/bin/git
         
@@ -84,7 +73,7 @@ Just follow the steps, in the order they are written. Skip steps at your own per
   
         $ brew install git
          
-  to install the new version. now you can do
+  to install the new version. Now you can do
   
         $ git --version
 
@@ -95,46 +84,46 @@ Just follow the steps, in the order they are written. Skip steps at your own per
        
          
 
-- ## [rbenv](https://github.com/sstephenson/rbenv) + [rubybuild]()
+- ### [rbenv](https://github.com/sstephenson/rbenv) + [rubybuild]()
 
 
         $ brew install rbenv
         $ brew install ruby-build
        
-  we now need to edit the bash profile. we create it with
+  We now need to edit the bash profile which doesn't exist on a freh system. Do:
   
         $ touch ~/.bash_profile
        
-  we can't see it yet, because we need to make the finder show hidden files from us by doing
+  We can't see that file yet, because we need to make the finder show hidden files to us by doing
 
         $ defaults write com.apple.Finder AppleShowAllFiles YES
 
-  and restart the finder
+  and restarting the finder:
 
   ![](http://dl.dropbox.com/u/2146484/finder-restart.png)
       
-  now you your home folder should have a file called `.bash_profile` in which we paste the line
+  Now you your home folder should have a file called `.bash_profile` in which we paste the line
 
         eval "$(rbenv init -)"
     
-  then restart the terminal.
+  and restart the terminal.
   
         $ rbenv versions
      
-  shows nothing. we need to install a ruby into rbenv by doing
+  shows nothing. We need to install a Ruby into rbenv by doing:
 
 
-        $ rbenv install 1.9.2-p290
+        $ rbenv install 1.9.3-p194
  	 
-  now
+  Now
 
         $ rbenv versions
   	 
-  should output
+  should output:
   
         1.9.3-p194
 
-  do
+  Do
   	 
         $ rbenv global 1.9.3-p194
         $ rbenv versions
@@ -143,17 +132,18 @@ Just follow the steps, in the order they are written. Skip steps at your own per
 
 - ## [Bundler](http://gembundler.com/)
   
+  Do:
+  
         $ gem install bundler
         
-  and restart the terminal.
+  and restart the terminal. *Note:* if you get a permission error, you must do `sudo gem install bundler` –– same with other gems.
         
-  You just installed your first gem. Well done!
 
 - ## [the heroku cli](http://github.com/heroku/gem)
 
         $ gem install heroku
 
-  and restart the terminal
+  and restart the terminal. Then do:
 
         $ heroku login
 
