@@ -113,7 +113,7 @@ Just follow the steps, in the order they are written. Skip steps at your own per
 
   ![](http://dl.dropbox.com/u/2146484/finder-restart.png)
       
-now you your home folder should have a file called `.bash_profile` in which we paste the line
+  now you your home folder should have a file called `.bash_profile` in which we paste the line
 
         eval "$(rbenv init -)"
     
