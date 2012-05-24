@@ -48,49 +48,49 @@ Just follow the steps, in the order they are written. Skip steps at your own per
 
 - ## [Homebrew](https://github.com/mxcl/homebrew/wiki/installation)
 
-      $ /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+        $ /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 
   then do
   
-      $ brew doctor
+        $ brew doctor
       
   which will tell you to do
 
-      $ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+        $ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
       
   after which  another
   
-      $ brew doctor
+        $ brew doctor
       
   should happily announce that
   
-      Your system is raring to brew.    
+        Your system is raring to brew.    
 
 - ## [git](http://git-scm.com/)
 
 	we want to uninstall the git version that came with OS X and install an up-to-do version with homebrew:
 	
-	  $ which git
+        $ which git
 	    
   will give you (on Lion at least)
   
-      /usr/bin/git
+        /usr/bin/git
         
   so we need to do
   		
-   	  $ sudo rm -rf /usr/bin/git
+        $ sudo rm -rf /usr/bin/git
 
   to remove the old git and
   
-       $ brew install git
+        $ brew install git
          
   to install the new version. now you can do
   
-       $ git --version
+        $ git --version
 
   and
 
-       $ which git
+        $ which git
        
        
          
@@ -98,16 +98,16 @@ Just follow the steps, in the order they are written. Skip steps at your own per
 - ## [rbenv](https://github.com/sstephenson/rbenv) + [rubybuild]()
 
 
-       $ brew install rbenv
-       $ brew install ruby-build
+        $ brew install rbenv
+        $ brew install ruby-build
        
   we now need to edit the bash profile. we create it with
   
-       $ touch ~/.bash_profile
+        $ touch ~/.bash_profile
        
   we can't see it yet, because we need to make the finder show hidden files from us by doing
 
-       $ defaults write com.apple.Finder AppleShowAllFiles YES
+        $ defaults write com.apple.Finder AppleShowAllFiles YES
 
   and restart the finder
 
@@ -115,30 +115,30 @@ Just follow the steps, in the order they are written. Skip steps at your own per
       
 now you your home folder should have a file called `.bash_profile` in which we paste the line
 
-    eval "$(rbenv init -)"
+        eval "$(rbenv init -)"
     
   then restart the terminal.
   
-     $ rbenv versions
+        $ rbenv versions
      
- shows nothing. we need to install a ruby into rbenv by doing
+  shows nothing. we need to install a ruby into rbenv by doing
 
 
- 	 $ rbenv install 1.9.2-p290
+        $ rbenv install 1.9.2-p290
  	 
   now
 
-  	 $ rbenv versions
+        $ rbenv versions
   	 
   should output
   
-  	 1.9.3-p194
+        1.9.3-p194
 
-do
+  do
   	 
-     $ rbenv global 1.9.3-p194
-     $ rbenv versions
-     $ rbenv version
+        $ rbenv global 1.9.3-p194
+        $ rbenv versions
+        $ rbenv version
 
 
 - ## [Bundler](http://gembundler.com/)
@@ -147,13 +147,13 @@ do
         
   and restart the terminal.
         
-    You just installed your first gem. Well done!
+  You just installed your first gem. Well done!
 
 - ## [the heroku cli](http://github.com/heroku/gem)
 
         $ gem install heroku
 
-and restart the terminal
+  and restart the terminal
 
         $ heroku login
 
