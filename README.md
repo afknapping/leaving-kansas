@@ -114,6 +114,10 @@ How to set up *The Wonderful World of Ruby and Rails*™ on OS X.
 
 
         $ rbenv install 1.9.3-p194
+        
+  This may take a while. Then do:
+  
+        $ rbenv rehash
  	 
   Now
 
@@ -253,11 +257,11 @@ A very special thanks to [5v3n](https://github.com/5v3n). This doc originated as
 Also thanks to the [*Hamburg Ruby Community*](http://hamburg.onruby.de/), especially [blindgaenger](https://github.com/blindgaenger) and [the mindmatters crew](https://github.com/mindmatters).
 
 ---
-### Further reading
+### Further reading and links
 
-- [Git](http://rogerdudler.github.com/git-guide/), [Git](http://nfarina.com/post/9868516270/git-is-simpler) and [Git](http://git-scm.com/video/what-is-version-control). Really, you can never know enough about git.
+- [Git](http://rogerdudler.github.com/git-guide/), [Git](http://nfarina.com/post/9868516270/git-is-simpler) and [Git](http://git-scm.com/video/what-is-version-control). Really, you can never know enough about [git](http://blip.tv/scott-chacon/git-talk-4113729) and [git](http://importantshock.wordpress.com/2008/08/07/git-vs-mercurial/).
 - [How do RVM and RBENV actually work?](http://stackoverflow.com/questions/9394338/how-do-rvm-and-rbenv-actually-work)
-
+- https://github.com/scoz/rbenv-rehash
 
 (more coming. maybe.)
 
