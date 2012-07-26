@@ -2,14 +2,15 @@
 
 How to set up *The Wonderful World of Ruby and Rails*™ on OS X.
 
-Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
+Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard** and so far not tested on 10.8 Mountain Lion.
+
+-   **Set up a Backup with Time Machine!!11!** Yes, that might include going to the store and buying a harddrive. Do not continue without having a backup!
+
+- If you've never used the terminal before, find out how to write a tilde (`~`) and do [5 minutes of shell basics](http://community.linuxmint.com/tutorial/view/100).
 
 - You should have [tried Ruby](http://tryruby.org/). It's also recommended to [try Git](http://try.github.com/).
 
 - [Stack Overflow](http://stackoverflow.com/) is the better Google for coding matters while [DuckDuckGo](http://duckduckgo.com) doesn't track you, has the nicer UI and some [nifty goodies](http://duckduckgo.com/tech.html).  Tattoo **"search the interwebs!!11!"** on the back of your hands. Whenever you read a word you do not understand, **look on the back of your hands!** 
-
-
-- If you've never used the terminal before, find out how to write a tilde (`~`) and do [5 minutes of shell basics](http://community.linuxmint.com/tutorial/view/100).
 
 - Install [1password](https://agilebits.com/onepassword/mac) and [its browser extensions](http://help.agilebits.com/1Password3/extension_install_update.html).
 
@@ -20,21 +21,22 @@ Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
 
 ## 1. Prepare and Install
 
+- ### Tools
+
+  Check out [Markdown](http://daringfireball.net/projects/markdown/) and install [Mou](http://mouapp.com/). Also install  [iTerm2](http://iterm2.com/) and [Sublime Text](http://www.sublimetext.com/2).
+
+
 - ### OS X
 
   Update to latest version of 10.6 Snow Leopard or 10.7 Lion.
-  
-  **Set up a Backup with Time Machine!!11!** Yes, that might include going to the store and buying a harddrive. Do not continue without having a backup!
 
-- ### [XCode](https://developer.apple.com/xcode/) >= 4.3
+- ### [XCode](https://developer.apple.com/xcode/)
 
-  It's huge. This will take some time to download.
+  You will find this at the [Mac App Store](http://itunes.apple.com/de/app/xcode/id497799835). It's huge. This will take some time to download.
 
   We also need the Command Line Tools for Xcode from within Xcode's Download preferences:
 
   ![](http://dl.dropbox.com/u/2146484/images/leaving-kansas/xcode-cli-install.png)
-
-   *Note:* It would be **much** lighter to use [OS X GCC](https://github.com/kennethreitz/osx-gcc-installer/), but [that is missing `xcodebuild`](https://github.com/mxcl/homebrew/issues/10960), so we need the 5 gig download of XCode through the Mac App Store to install Homebrew without errors :(
 
 - ### Finder
 
@@ -50,11 +52,6 @@ Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
   
   ![](http://dl.dropbox.com/u/2146484/images/leaving-kansas/finder-keyboard-control.png)
 
-- ### Tools
-
-  Check out [Markdown](http://daringfireball.net/projects/markdown/) and install [Mou](http://mouapp.com/). Also install  [iTerm2](http://iterm2.com/) and [Sublime Text](http://www.sublimetext.com/2).
-
-
 - ### [Homebrew](https://github.com/mxcl/homebrew/wiki/installation)
 
   is currently installed by doing:
@@ -69,7 +66,7 @@ Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
   
         Your system is raring to brew.    
         
-  Homebrew install packages into `/usr/local/bin`, so we need to edit the file `/etc/paths` to tell the system to look there first. Open `/etc/paths` it with Sublime Text. On a fresh Lion install that file looks something like this:
+  Homebrew installs packages into `/usr/local/bin`, so we need to edit the file `/etc/paths` to tell the system to look there first. Open `/etc/paths` with Sublime Text. On a fresh Lion install that file should look something like this:
   
 		/usr/bin  
 		/bin
@@ -85,7 +82,7 @@ Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
 		/usr/sbin
 		/sbin
 
-Restart the terminal after saving the file.
+Save the file (will ask for your admin password) and restart the terminal.
 
 - ### [git](http://git-scm.com/)
 
@@ -253,17 +250,17 @@ For example:
 - Learn [HAML](http://haml-lang.com/) and [SASS](sass-lang.com)
 - [Learn more shell](http://cli.learncodethehardway.org/book/)
 - [Learn more Ruby](http://rubymonk.com/)
+- Look up `.gemrc` and why it could make sense to add the line `gem: --no-rdoc --no-ri` to it
 - Start blogging (you now have your own blog, you know?)
 - Take a long walk (always helps)
 - Do lots of reading about the tools you are using
 - Find your local [Ruby usergroup](http://www.rubyusergroups.org/) or [Railsgirls group](http://railsgirls.com/). If there is none, start one!
 - Find the nearest BarCamp on Ruby and Rails. If there is none, start one!
-- Check out out how to map your new blog to your own domain
+- Check out out [how to map your new blog to your own domain](https://devcenter.heroku.com/articles/custom-domains)
 - Drink more water
 - Make a branch of your blog, change the design, later merge it to your master branch
 - Try to [get a rails app running](http://railsapps.github.com/rails-heroku-tutorial.html)
 - Try [Pow](http://pow.cx/)
-
 - [Learn some JavaScript](http://www.codecademy.com/) –– or if you know JavaScript, check out [CoffeeScript](http://coffeescript.org)
 - get [more good advice](http://goodfuckingdesignadvice.com/)…
 - …and [give feedback](http://twitter.com/filtercake).
@@ -281,17 +278,7 @@ HT to  [Ben](http://twitter.com/salzig) for the hint on enabling keybard control
 ---
 ### Further reading and links
 
-- [Git](http://rogerdudler.github.com/git-guide/), [Git](http://nfarina.com/post/9868516270/git-is-simpler) and [Git](http://git-scm.com/video/what-is-version-control). Really, you can never know enough about [git](http://blip.tv/scott-chacon/git-talk-4113729) and [git](http://importantshock.wordpress.com/2008/08/07/git-vs-mercurial/).
+- [Git](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/), [Git](http://rogerdudler.github.com/git-guide/), [Git](http://nfarina.com/post/9868516270/git-is-simpler) and [Git](http://git-scm.com/video/what-is-version-control). Really, you can never know enough about [Git](http://blip.tv/scott-chacon/git-talk-4113729), [Git](https://github.com/aanand/git-up), [Git](https://github.com/kennethreitz/legit) and [Git](http://importantshock.wordpress.com/2008/08/07/git-vs-mercurial/).
 - [How do RVM and RBENV actually work?](http://stackoverflow.com/questions/9394338/how-do-rvm-and-rbenv-actually-work)
 
 (more coming. maybe.)
-
-###### TODO
-
-- http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/ -- https://github.com/nvie/gitflow/wiki/Installation
-- https://github.com/aanand/git-up
-- https://github.com/kennethreitz/legit
-
-- .gemrc: --no
-
-- https://github.com/scoz/rbenv-rehash (updated into rbenv)
