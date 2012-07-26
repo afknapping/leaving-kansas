@@ -4,7 +4,7 @@ How to set up *The Wonderful World of Ruby and Rails*™ on OS X.
 
 Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
 
-- You should have [tried Ruby](http://tryruby.org/).
+- You should have [tried Ruby](http://tryruby.org/). It's also recommended to [try Git](http://try.github.com/).
 
 - [Stack Overflow](http://stackoverflow.com/) is the better Google for coding matters while [DuckDuckGo](http://duckduckgo.com) doesn't track you, has the nicer UI and some [nifty goodies](http://duckduckgo.com/tech.html).  Tattoo **"search the interwebs!!11!"** on the back of your hands. Whenever you read a word you do not understand, **look on the back of your hands!** 
 
@@ -60,22 +60,32 @@ Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
   is currently installed by doing:
 
         $ /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
-
-  Then do
-  
-        $ brew doctor
       
-  which will tell you to do
-
-        $ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
-      
-  after which  another
+  after which
   
         $ brew doctor
       
   should happily announce that:
   
         Your system is raring to brew.    
+        
+  Homebrew install packages into `/usr/local/bin`, so we need to edit the file `/etc/paths` to tell the system to look there first. Open `/etc/paths` it with Sublime Text. On a fresh Lion install that file looks something like this:
+  
+		/usr/bin  
+		/bin
+		/usr/sbin
+		/sbin
+		/usr/local/bin
+		
+  That last line `/usr/local/bin` needs to go to the top, so the file looks like this:
+
+		/usr/local/bin
+		/usr/bin  
+		/bin
+		/usr/sbin
+		/sbin
+
+Restart the terminal after saving the file.
 
 - ### [git](http://git-scm.com/)
 
@@ -112,16 +122,16 @@ Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
         $ brew install rbenv
         $ brew install ruby-build
        
-  We now need to edit the bash profile which doesn't exist on a freh system. Do:
+  We now need to edit the bash profile which doesn't exist on a fresh system. Do:
   
         $ touch ~/.bash_profile
       
       
-  and paste the line
+  paste the line
 
         eval "$(rbenv init -)"
     
-  and restart the terminal.
+  into it and restart the terminal.
   
         $ rbenv versions
      
@@ -132,13 +142,10 @@ Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
         
   This may take a while. Then do:
   
-        $ rbenv rehash
- 	 
-  Now
 
         $ rbenv versions
   	 
-  should output:
+  which should output:
   
         1.9.3-p194
 
@@ -184,7 +191,7 @@ Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, **no 10.5 Leopard**.
 
 - [create a new heroku app](https://devcenter.heroku.com/articles/creating-apps):
 
-        $ heroku create --stack cedar
+        $ heroku create
 
 - push your app online:
 
@@ -201,6 +208,8 @@ You don't have to push every change to Heroku to check it out. You can run a ser
 - Install [thin](http://code.macournoyer.com/thin/):
 
         $ gem install thin
+        
+  and restart the terminal.
         
 - go to your blog directory and start the server:
 
@@ -234,16 +243,16 @@ Do you see your changes on your deployed version of the blog and on your github 
 
 ## You did it! Now take a break,…
 
-…get a beer and pat yourself on the back for next couple hours. Bold move, bro!
-
-That also means that this tutorial worked out. [Tell your friends about it](the long tweet thing...).
+…get a beer and pat yourself on the back for next couple hours.
 
 
-
-### Then: have fun…
+## Then: have fun…
 
 For example:
 
+- Learn [HAML](http://haml-lang.com/) and [SASS](sass-lang.com)
+- [Learn more shell](http://cli.learncodethehardway.org/book/)
+- [Learn more Ruby](http://rubymonk.com/)
 - Start blogging (you now have your own blog, you know?)
 - Take a long walk (always helps)
 - Do lots of reading about the tools you are using
@@ -252,11 +261,9 @@ For example:
 - Check out out how to map your new blog to your own domain
 - Drink more water
 - Make a branch of your blog, change the design, later merge it to your master branch
-- Learn [HAML](http://haml-lang.com/) and [SASS](sass-lang.com)
 - Try to [get a rails app running](http://railsapps.github.com/rails-heroku-tutorial.html)
 - Try [Pow](http://pow.cx/)
-- [Learn more shell](http://cli.learncodethehardway.org/book/)
-- [Learn more Ruby](http://rubymonk.com/)
+
 - [Learn some JavaScript](http://www.codecademy.com/) –– or if you know JavaScript, check out [CoffeeScript](http://coffeescript.org)
 - get [more good advice](http://goodfuckingdesignadvice.com/)…
 - …and [give feedback](http://twitter.com/filtercake).
@@ -285,4 +292,6 @@ HT to  [Ben](http://twitter.com/salzig) for the hint on enabling keybard control
 - https://github.com/aanand/git-up
 - https://github.com/kennethreitz/legit
 
-- https://github.com/scoz/rbenv-rehash
+- .gemrc: --no
+
+- https://github.com/scoz/rbenv-rehash (updated into rbenv)
