@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Leaving Kansas by filtercake</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Leaving Kansas</h1>
+          <h2>A tutorial on how to set up The Wonderful World of Ruby and Rails™ on OS X</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/filtercake/leaving-kansas/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/filtercake/leaving-kansas/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/filtercake/leaving-kansas" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p>Supported: 10.6 Snow Leopard and 10.7 Lion. Sorry, <strong>no 10.5 Leopard</strong> and so far not tested on 10.8 Mountain Lion.</p>
+
+<ul>
+<li><p><strong>Set up a Backup with Time Machine!!11!</strong> Yes, that might include going to the store and buying a harddrive. Do not continue without having a backup!</p></li>
+<li><p>If you've never used the terminal before, find out how to write a tilde (<code>~</code>) and do <a href="http://community.linuxmint.com/tutorial/view/100">5 minutes of shell basics</a>.</p></li>
+<li><p>You should have <a href="http://tryruby.org/">tried Ruby</a>. It's also recommended to <a href="http://try.github.com/">try Git</a>.</p></li>
+<li><p><a href="http://stackoverflow.com/">Stack Overflow</a> is the better Google for coding matters while <a href="http://duckduckgo.com">DuckDuckGo</a> doesn't track you, has the nicer UI and some <a href="http://duckduckgo.com/tech.html">nifty goodies</a>.  Tattoo <strong>"search the interwebs!!11!"</strong> on the back of your hands. Whenever you read a word you do not understand, <strong>look on the back of your hands!</strong> </p></li>
+<li><p>Install <a href="https://agilebits.com/onepassword/mac">1password</a> and <a href="http://help.agilebits.com/1Password3/extension_install_update.html">its browser extensions</a>.</p></li>
+<li><p><a href="https://help.github.com/articles/generating-ssh-keys">Set up your ssh-key</a>.</p></li>
+<li><p>Sign up for accounts on <a href="http://twitter.com">Twitter</a>, <a href="http://github.com">Github</a> and <a href="http://heroku.com">Heroku</a>.</p></li>
+</ul><h2>1. Prepare and Install</h2>
+
+<ul>
+<li>
+<h3>Tools</h3>
+
+<p>Check out <a href="http://daringfireball.net/projects/markdown/">Markdown</a> and install <a href="http://mouapp.com/">Mou</a>. Also install  <a href="http://iterm2.com/">iTerm2</a> and <a href="http://www.sublimetext.com/2">Sublime Text</a>.</p>
+</li>
+<li>
+<h3>OS X</h3>
+
+<p>Update to latest version of 10.6 Snow Leopard or 10.7 Lion.</p>
+</li>
+<li>
+<h3><a href="https://developer.apple.com/xcode/">XCode</a></h3>
+
+<p>You will find this at the <a href="http://itunes.apple.com/de/app/xcode/id497799835">Mac App Store</a>. It's huge. This will take some time to download.</p>
+
+<p>We also need the Command Line Tools for Xcode from within Xcode's Download preferences:</p>
+
+<p><img src="http://dl.dropbox.com/u/2146484/images/leaving-kansas/xcode-cli-install.png" alt=""></p>
+</li>
+<li>
+<h3>Finder</h3>
+
+<p>Make hidden files visible by pasting this into the terminal</p>
+
+<pre><code>$ defaults write com.apple.Finder AppleShowAllFiles YES
+</code></pre>
+
+<p>and restart the finder:</p>
+
+<p><img src="http://dl.dropbox.com/u/2146484/images/leaving-kansas/finder-restart.png" alt=""></p>
+
+<p>Then activate keyboard control for system dialogues:</p>
+
+<p><img src="http://dl.dropbox.com/u/2146484/images/leaving-kansas/finder-keyboard-control.png" alt=""></p>
+</li>
+<li>
+<h3><a href="https://github.com/mxcl/homebrew/wiki/installation">Homebrew</a></h3>
+
+<p>is currently installed by doing:</p>
+
+<pre><code>$ /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+</code></pre>
+
+<p>after which</p>
+
+<pre><code>$ brew doctor
+</code></pre>
+
+<p>should happily announce that:</p>
+
+<pre><code>Your system is raring to brew.    
+</code></pre>
+
+<p>Homebrew installs packages into <code>/usr/local/bin</code>, so we need to edit the file <code>/etc/paths</code> to tell the system to look there first. Open <code>/etc/paths</code> with Sublime Text. On a fresh Lion install that file should look something like this:</p>
+
+<pre><code>/usr/bin  
+/bin
+/usr/sbin
+/sbin
+/usr/local/bin
+</code></pre>
+
+<p>That last line <code>/usr/local/bin</code> needs to go to the top, so the file looks like this:</p>
+
+<pre><code>/usr/local/bin
+/usr/bin  
+/bin
+/usr/sbin
+/sbin
+</code></pre>
+</li>
+</ul><p>Save the file (will ask for your admin password) and restart the terminal.</p>
+
+<ul>
+<li>
+<h3><a href="http://git-scm.com/">git</a></h3>
+
+<p>We want to uninstall the git version that came with OS X and install an up-to-do version with homebrew:</p>
+
+<pre><code>$ which git
+</code></pre>
+
+<p>will output (on Lion at least)</p>
+
+<pre><code>/usr/bin/git
+</code></pre>
+
+<p>so we need to do</p>
+
+<pre><code>$ sudo rm -rf /usr/bin/git
+</code></pre>
+
+<p>to remove the old git and</p>
+
+<pre><code>$ brew install git
+</code></pre>
+
+<p>to install the new version. Now you can do</p>
+
+<pre><code>$ git --version
+</code></pre>
+
+<p>and</p>
+
+<pre><code>$ which git
+</code></pre>
+</li>
+<li>
+<h3>
+<a href="https://github.com/sstephenson/rbenv">rbenv</a> + <a href="">rubybuild</a>
+</h3>
+
+<pre><code>$ brew install rbenv
+$ brew install ruby-build
+</code></pre>
+
+<p>We now need to edit the bash profile which doesn't exist on a fresh system. Do:</p>
+
+<pre><code>$ touch ~/.bash_profile
+</code></pre>
+
+<p>paste the line</p>
+
+<pre><code>eval "$(rbenv init -)"
+</code></pre>
+
+<p>into it and restart the terminal.</p>
+
+<pre><code>$ rbenv versions
+</code></pre>
+
+<p>shows nothing. We need to install a Ruby into rbenv by doing:</p>
+
+<pre><code>$ rbenv install 1.9.3-p194
+</code></pre>
+
+<p>This may take a while. Then do:</p>
+
+<pre><code>$ rbenv versions
+</code></pre>
+
+<p>which should output:</p>
+
+<pre><code>1.9.3-p194
+</code></pre>
+
+<p>Do</p>
+
+<pre><code>$ rbenv global 1.9.3-p194
+$ rbenv versions
+$ rbenv version
+</code></pre>
+</li>
+<li>
+<h2><a href="http://gembundler.com/">Bundler</a></h2>
+
+<p>Do:</p>
+
+<pre><code>$ gem install bundler
+</code></pre>
+
+<p>and restart the terminal. <em>Note:</em> if you get a permission error, you must do <code>sudo gem install bundler</code> –– same with other gems.</p>
+</li>
+<li>
+<h2><a href="http://github.com/heroku/gem">the heroku cli</a></h2>
+
+<pre><code>$ gem install heroku
+</code></pre>
+
+<p>and restart the terminal. Then do:</p>
+
+<pre><code>$ heroku login
+</code></pre>
+</li>
+</ul><h2>2. Fork and deploy a test app</h2>
+
+<ul>
+<li>create a folder called <code>my_awesome_blog</code> in your <code>projects</code>-folder</li>
+<li>log into github</li>
+<li>go to <a href="https://github.com/5v3n/karathy">https://github.com/5v3n/karathy</a>
+</li>
+<li><p><a href="http://help.github.com/fork-a-repo/">fork and clone it</a> into <code>~/projects/my_awesome_blog</code></p></li>
+<li>
+<p>install needed gems with bundler:</p>
+
+<pre><code>$ cd ~/projects/my_awesome_blog
+$ bundle install
+</code></pre>
+</li>
+<li>
+<p><a href="https://devcenter.heroku.com/articles/creating-apps">create a new heroku app</a>:</p>
+
+<pre><code>$ heroku create
+</code></pre>
+</li>
+<li>
+<p>push your app online:</p>
+
+<pre><code>$ git push heroku master
+</code></pre>
+</li>
+<li><p>Open the URL in your browser.</p></li>
+</ul><p>Do you see your new blog? Congratulations #1!</p>
+
+<h2>3. Run the app locally on your machine</h2>
+
+<p>You don't have to push every change to Heroku to check it out. You can run a server on your very own machine.</p>
+
+<ul>
+<li>
+<p>Install <a href="http://code.macournoyer.com/thin/">thin</a>:</p>
+
+<pre><code>$ gem install thin
+</code></pre>
+
+<p>and restart the terminal.</p>
+</li>
+<li>
+<p>go to your blog directory and start the server:</p>
+
+<pre><code>$ cd ~/projects/my_awesome_blog
+$ thin start
+</code></pre>
+</li>
+<li><p>open <a href="http://0.0.0.0:3000"><code>0.0.0.0:3000</code></a> in your webbrowser</p></li>
+</ul><p>Do you see your local copy of the blog? Congratulations #2!</p>
+
+<h2>4. Mod it</h2>
+
+<ul>
+<li>Open the file <code>~/projects/my_awesome_blog/templates/layout.rhtml</code> in your code editor</li>
+<li>Find line 23</li>
+<li>Change "My Blog" to "Hello World"</li>
+<li>Save the file</li>
+<li><a href="http://0.0.0.0:3000">Check it out by updating your browser!</a></li>
+</ul><p>Do you see your changes? Congratulations #3!</p>
+
+<p>Have a look at the terminal window where you started thin. You can see the requests your local server is answering.</p>
+
+<p>Now commit and push:</p>
+
+<pre><code>    $ git commit -am "Effyeah, my first commit evah!"
+    $ git push heroku master
+    $ git push origin master
+</code></pre>
+
+<p>Do you see your changes on your deployed version of the blog and on your github repo? Congratulations #4!</p>
+
+<h2>You did it! Now take a break,…</h2>
+
+<p>…get a beer and pat yourself on the back for next couple hours.</p>
+
+<h2>Then: have fun…</h2>
+
+<p>For example:</p>
+
+<ul>
+<li>Learn <a href="http://haml-lang.com/">HAML</a> and <a href="sass-lang.com">SASS</a>
+</li>
+<li><a href="http://cli.learncodethehardway.org/book/">Learn more shell</a></li>
+<li><a href="http://rubymonk.com/">Learn more Ruby</a></li>
+<li>Look up <code>.gemrc</code> and why it could make sense to add the line <code>gem: --no-rdoc --no-ri</code> to it</li>
+<li>Start blogging (you now have your own blog, you know?)</li>
+<li>Take a long walk (always helps)</li>
+<li>Do lots of reading about the tools you are using</li>
+<li>Find your local <a href="http://www.rubyusergroups.org/">Ruby usergroup</a> or <a href="http://railsgirls.com/">Railsgirls group</a>. If there is none, start one!</li>
+<li>Find the nearest BarCamp on Ruby and Rails. If there is none, start one!</li>
+<li>Check out out <a href="https://devcenter.heroku.com/articles/custom-domains">how to map your new blog to your own domain</a>
+</li>
+<li>Drink more water</li>
+<li>Make a branch of your blog, change the design, later merge it to your master branch</li>
+<li>Try to <a href="http://railsapps.github.com/rails-heroku-tutorial.html">get a rails app running</a>
+</li>
+<li>Try <a href="http://pow.cx/">Pow</a>
+</li>
+<li>
+<a href="http://www.codecademy.com/">Learn some JavaScript</a> –– or if you know JavaScript, check out <a href="http://coffeescript.org">CoffeeScript</a>
+</li>
+<li>get <a href="http://goodfuckingdesignadvice.com/">more good advice</a>…</li>
+<li>…and <a href="http://twitter.com/filtercake">give feedback</a>.</li>
+</ul><hr><h3>Credits</h3>
+
+<p>A very special thanks to <a href="https://github.com/5v3n">5v3n</a>. This doc originated as part of documentation for <a href="link">The Ratpack Workshop</a>.</p>
+
+<p>Also thanks to the <a href="http://hamburg.onruby.de/"><em>Hamburg Ruby Community</em></a>, especially <a href="https://github.com/blindgaenger">blindgaenger</a> and <a href="https://github.com/mindmatters">the mindmatters crew</a>.</p>
+
+<p>HT to  <a href="http://twitter.com/salzig">Ben</a> for the hint on enabling keybard control for all system dialogues.</p>
+
+<hr><h3>Further reading and links</h3>
+
+<ul>
+<li>
+<a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">Git</a>, <a href="http://rogerdudler.github.com/git-guide/">Git</a>, <a href="http://nfarina.com/post/9868516270/git-is-simpler">Git</a> and <a href="http://git-scm.com/video/what-is-version-control">Git</a>. Really, you can never know enough about <a href="http://blip.tv/scott-chacon/git-talk-4113729">Git</a>, <a href="https://github.com/aanand/git-up">Git</a>, <a href="https://github.com/kennethreitz/legit">Git</a> and <a href="http://importantshock.wordpress.com/2008/08/07/git-vs-mercurial/">Git</a>.</li>
+<li><a href="http://stackoverflow.com/questions/9394338/how-do-rvm-and-rbenv-actually-work">How do RVM and RBENV actually work?</a></li>
+</ul><p>(more coming. maybe.)</p>
+        </section>
+
+        <footer>
+          Leaving Kansas is maintained by <a href="https://github.com/filtercake">filtercake</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
