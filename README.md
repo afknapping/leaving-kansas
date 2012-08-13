@@ -242,15 +242,18 @@ Do you see your changes on your deployed version of the blog and on your github 
 
 …get a beer and pat yourself on the back for next couple hours.
 
+## Useful stuff
 
-## Then: have fun…
+- <https://github.com/nathos/sass-textmate-bundle>
+- sass user variables: tabs, word wrap, file types
+- Look up `.gemrc` and why it could make sense to add the line `gem: --no-rdoc --no-ri` to it
+- bash_profile + links profile vs rc etc… 
 
-For example:
+## Bored?
 
 - Learn [HAML](http://haml-lang.com/) and [SASS](sass-lang.com)
 - [Learn more shell](http://cli.learncodethehardway.org/book/)
 - [Learn more Ruby](http://rubymonk.com/)
-- Look up `.gemrc` and why it could make sense to add the line `gem: --no-rdoc --no-ri` to it
 - Start blogging (you now have your own blog, you know?)
 - Take a long walk (always helps)
 - Do lots of reading about the tools you are using
